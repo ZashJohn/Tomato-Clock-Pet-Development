@@ -178,6 +178,7 @@ function restart() {
     // 是否处于暂停期间
     isPause = false;
     document.getElementById('clock-title').innerText = '未开始';
+    document.getElementById('timer').innerText = "00:00";
 }
 //时钟 end
 
