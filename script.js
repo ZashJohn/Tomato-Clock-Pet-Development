@@ -183,3 +183,70 @@ function restart() {
 //时钟 end
 
 
+let selectedRow = null;
+
+// 编辑任务
+function editTask(cell) {
+  cell.setAttribute('contenteditable', 'true'); // 设置任务单元格为可编辑
+  cell.focus(); // 让任务单元格获得焦点
+}
+
+// 保存任务
+function saveTasks() {
+  const tasks = document.querySelectorAll('.task-list td.editable');
+  tasks.forEach(task => {
+    if (task.parentElement.classList.contains('selected')) {
+      task.removeAttribute('contenteditable'); // 移除选中任务的编辑状态
+      task.addEventListener('click', function() {
+        editTask(this); // 保留点击事件监听器，以便用户可以继续编辑
+      });
+    }
+  });
+}
+
+// 新建任务
+function addNewTask() {
+  const taskList = document.querySelector('.task-list');
+  const rowCount = taskList.rows.length;
+  const newRow = taskList.insertRow(rowCount); // 插入新行
+  newRow.innerHTML = '<td>' + rowCount + '</td>' + // 编号列
+                     '<td class="editable" contenteditable="true">新建任务</td>' + // 任务列
+                     '<td><input type="checkbox" onclick="toggleCheckbox(this)"></td>' + // 新添加的勾选按钮列
+                     '<td><button onclick="deleteRow(this)">删除</button></td>'; // 新添加的删除按钮列
+}
+
+// 选择任务
+function selectTask(row) {
+  if (selectedRow !== null) {
+    selectedRow.classList.remove('selected');
+  }
+  row.classList.add('selected');
+  selectedRow = row;
+}
+
+// 切换勾选按钮状态
+function toggleCheckbox(checkbox) {
+  const checkboxes = document.querySelectorAll('.task-list input[type="checkbox"]');
+  checkboxes.forEach(cb => {
+    if (cb !== checkbox) {
+      cb.checked = false; // 只允许一个勾选按钮被选中
+    }
+  });
+}
+
+// 删除行
+function deleteRow(button) {
+  const row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row); // 删除所在行
+  updateTaskNumbers(); // 更新任务编号
+}
+
+// 更新任务编号
+function updateTaskNumbers() {
+  const rows = document.querySelectorAll('.task-list tr');
+  rows.forEach((row, index) => {
+    if (index > 0) { // 跳过表头
+      row.cells[0].textContent = index; // 更新任务编号
+    }
+  });
+}
