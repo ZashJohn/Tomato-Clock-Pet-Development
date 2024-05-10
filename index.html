@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link href="./style.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet">
   <title>pomotodo</title>
   <script src="./script.js"></script>
 </head>
@@ -28,9 +28,9 @@
         <div class="main-left-top">
           <table border="1" class="task-left">
             <tr>
-              <td>目标</td>
-              <td>次数</td>
-              <td>时间总结</td>
+              <td id="task-target">目标</td>
+              <td id="task-times">次数</td>
+              <td id="time-summary">时间总结</td>
             </tr>
           </table>
         </div>
@@ -58,6 +58,7 @@
       </div>
       <!-- 主页面右边 -->
       <div class="main-right">
+        <!-- 右上 日历 -->
         <div class="main-right-top">
           <h2 id="currentMonth"></h2>
 
@@ -77,28 +78,28 @@
               <!-- Days will be inserted here with JavaScript -->
             </tbody>
           </table>
-          <div class="main-right-bottom">
-            <p class="task-title">Task List</p>
-            <table border="1" class="task-list">
-              <tr>
-                <th class="task-number">任务数</th>
-                <th>任务</th>
-                <th>状态</th> <!-- 新添加的状态栏列 -->
-                <th>操作</th> <!-- 新添加的操作栏列 -->
-              </tr>
-              <tr onclick="selectTask(this)">
-                <td>1</td>
-                <td class="editable" contenteditable="true">任务 1</td>
-                <td><input type="checkbox" onclick="toggleCheckbox(this)"></td> <!-- 新添加的勾选按钮 -->
-                <td><button onclick="deleteRow(this)">删除</button></td> <!-- 新添加的删除按钮 -->
-              </tr>
-              <!-- 其他任务行 -->
-            </table>
-            <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
-            <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
-            <p class="partition"></p>
-            <!-- 其他任务列表 -->
-          </div>
+        </div>
+        <!-- 右下 任务列表 -->
+        <div class="main-right-bottom">
+          <p class="task-title">task-list</p>
+          <table border="1" class="task-list">
+            <tr>
+              <th class="task-number">任务数</th>
+              <th>任务</th>
+              <th>状态</th> <!-- 新添加的状态栏列 -->
+              <th>操作</th> <!-- 新添加的操作栏列 -->
+            </tr>
+            <tr onclick="selectTask(this)">
+              <td>1</td>
+              <td class="editable" contenteditable="true">任务 1</td>
+              <td><input type="checkbox" onclick="toggleCheckbox(this)"></td> <!-- 新添加的勾选按钮 -->
+              <td><button onclick="deleteRow(this)">删除</button></td> <!-- 新添加的删除按钮 -->
+            </tr>
+            <!-- 其他任务行 -->
+          </table>
+          <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
+          <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
+          <p class="partition"></p>
           <script>
             //日历 strat
             // 获取当前日期
