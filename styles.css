@@ -3,15 +3,23 @@
   position: relative;
 }
 
-/* 导航栏 start */
 .nav {
   flex: 0 0 10%;
   padding: 10px 0;
   height: 100vh;
   background-color: #e3e3e3;
-  box-sizing: border-box;
 }
 
+.main {
+  flex: 1;
+  height: 100vh;
+  background-image: url("./images/main.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
 
 .nav li {
   padding: 8px 0;
@@ -47,21 +55,6 @@ ul .self {
   height: 50px;
 }
 
-/* 导航栏 end */
-
-/* 主页面 start */
-.main {
-  flex: 1;
-  height: 100vh;
-  background-image: url("./images/main.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-}
-
-/* 主页面 end */
 /* 主页面左边 */
 .main-left {
   flex: 2;
@@ -90,12 +83,10 @@ ul .self {
 .clock {
   text-align: center;
 }
-
-input {
+input{
   border-radius: 5px;
   background-color: #cae6e0;
 }
-
 button {
   background-color: #f66f6a;
   color: white;
@@ -165,7 +156,21 @@ button {
   padding: 5px 10px;
   font-size: 1rem;
 }
-
+input{
+  width: 85px;
+}
+.main-left-bottom .clock .start{
+  position: relative;
+  left: -30px;
+}
+.main-left-bottom .clock .end{
+  position: relative;
+  right: -5px;
+}
+.main-left-bottom .clock .restart{
+  position: relative;
+  left: 30px;
+}
 /* 主页面右边 */
 .main-right {
   flex: 1;

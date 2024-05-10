@@ -5,47 +5,7 @@
   <meta charset="UTF-8">
   <link href="./styles.css" rel="stylesheet">
   <title>pomotodo</title>
-  <script>
-    let timerInterval;
-    let totalSeconds = 0;
-    let isTimerRunning = false;
-
-    function startTimer() {
-      // Check if timer is already running
-      if (isTimerRunning) {
-        return;
-      }
-
-      if (totalSeconds <= 0) {
-        // If timer is not running and totalSeconds is not set, set it from input
-        totalSeconds = parseInt(document.getElementById('countdown').value);
-        if (isNaN(totalSeconds) || totalSeconds <= 0) {
-          alert('Please enter a valid countdown time (greater than 0 seconds).');
-          return;
-        }
-      }
-
-      isTimerRunning = true;
-      timerInterval = setInterval(updateTimer, 1000);
-    }
-
-    function stopTimer() {
-      clearInterval(timerInterval);
-      isTimerRunning = false;
-    }
-
-    function updateTimer() {
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-      document.getElementById('timer').innerText = `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-      totalSeconds--;
-      if (totalSeconds < 0) {
-        clearInterval(timerInterval);
-        document.getElementById('timer').innerText = 'Time\'s up!';
-        isTimerRunning = false;
-      }
-    }
-  </script>
+  <script src="./script.js"></script>
 </head>
 
 
@@ -77,13 +37,19 @@
         <!-- 左下 -->
         <div class="main-left-bottom">
           <div class="clock">
-            <label for="countdown">请设定时间:</label>
-            <input type="number" id="countdown" min="1" value="60">
-            <button onclick="startTimer()">Start</button>
-            <button onclick="stopTimer()">Stop</button>
+            <label for="countdown">请输入专注时间</label>
+            <input type="number" id="minute" min="0" max="60" placeholder="分">
+            <input type="number" id="second" min="1" max="60" placeholder="秒">
+            <span>专注次数</span>
+            <input type="number" id="times" min="1" value="1">
+            <span>休息时间</span>
+            <input type="number" id="breakTime" min="1" max="60" value="5">
+            <button onclick="startTimer()" class="start">开始</button>
+            <button onclick="stopTimer()" class="end">停止</button>
+            <button onclick="restart()" class="restart">重置</button>
             <div class="circle">
               <div class="inner-circle">
-                <p>专注中</p>
+                <p id="clock-title">未开始</p>
                 <div id="timer">00:00</div>
               </div>
             </div>
@@ -111,7 +77,38 @@
               <!-- Days will be inserted here with JavaScript -->
             </tbody>
           </table>
+        </div>
+        <div class="main-right-bottom">
+          <p class="task-title">task-list</p>
+          <table border="1" class="task-list">
+            <tr>
+              <td class="task-number">任务数</td>
+              <td>任务</td>
+            </tr>
+          </table>
+          <p class="partition"></p>
+          <table border="1" class="task-list">
+            <tr>
+              <td class="task-number">任务数</td>
+              <td>任务</td>
+            </tr>
+          </table>
+          <p class="partition"></p>
+          <table border="1" class="task-list">
+            <tr>
+              <td class="task-number">任务数</td>
+              <td>任务</td>
+            </tr>
+          </table>
+          <p class="partition"></p>
+          <table border="1" class="task-list">
+            <tr>
+              <td class="task-number">任务数</td>
+              <td>任务</td>
+            </tr>
+          </table>
           <script>
+            //日历 strat
             // 获取当前日期
             let today = new Date();
 
@@ -162,37 +159,8 @@
               }
               calendarBody.appendChild(row);
             }
+            //日历 end
           </script>
-        </div>
-        <div class="main-right-bottom">
-          <p class="task-title">task-list</p>
-          <table border="1" class="task-list">
-            <tr>
-              <td class="task-number">任务数</td>
-              <td>任务</td>
-            </tr>
-          </table>
-          <p class="partition"></p>
-          <table border="1" class="task-list">
-            <tr>
-              <td class="task-number">任务数</td>
-              <td>任务</td>
-            </tr>
-          </table>
-          <p class="partition"></p>
-          <table border="1" class="task-list">
-            <tr>
-              <td class="task-number">任务数</td>
-              <td>任务</td>
-            </tr>
-          </table>
-          <p class="partition"></p>
-          <table border="1" class="task-list">
-            <tr>
-              <td class="task-number">任务数</td>
-              <td>任务</td>
-            </tr>
-          </table>
         </div>
       </div>
     </div>

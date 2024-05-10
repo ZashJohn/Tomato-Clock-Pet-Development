@@ -156,7 +156,21 @@ button {
   padding: 5px 10px;
   font-size: 1rem;
 }
-
+input{
+  width: 85px;
+}
+.main-left-bottom .clock .start{
+  position: relative;
+  left: -30px;
+}
+.main-left-bottom .clock .end{
+  position: relative;
+  right: -5px;
+}
+.main-left-bottom .clock .restart{
+  position: relative;
+  left: 30px;
+}
 /* 主页面右边 */
 .main-right {
   flex: 1;
