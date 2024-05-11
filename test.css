@@ -8,6 +8,7 @@
   padding: 10px 0;
   height: 100vh;
   background-color: #e3e3e3;
+  box-sizing: border-box;
 }
 
 .main {
@@ -83,10 +84,12 @@ ul .self {
 .clock {
   text-align: center;
 }
-input{
+
+input {
   border-radius: 5px;
   background-color: #cae6e0;
 }
+
 button {
   background-color: #f66f6a;
   color: white;
@@ -156,20 +159,80 @@ button {
   padding: 5px 10px;
   font-size: 1rem;
 }
-input{
+
+input {
   width: 85px;
 }
-.main-left-bottom .clock .start{
+
+.main-left-bottom .clock .start {
   position: relative;
   left: -30px;
 }
-.main-left-bottom .clock .end{
+
+.main-left-bottom .clock .end {
   position: relative;
   right: -5px;
 }
-.main-left-bottom .clock .restart{
+
+.main-left-bottom .clock .restart {
   position: relative;
   left: 30px;
+}
+
+/* 左下--选择宠物 */
+
+.btn {
+  display: inline-block;
+  padding: 6px 10px;
+  /* 调整按钮的内边距 */
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  /* 将按钮的背景颜色设置为透明 */
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('./images/background.jpg');
+  /* 设置背景图片 */
+  background-size: contain;
+  /* 设置背景图片大小为包含在元素中 */
+  background-repeat: no-repeat;
+  /* 防止背景图片重复 */
+  background-position: center;
+  /* 将背景图片居中显示 */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  text-align: center;
+  /* 让内部文字居中显示 */
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.btn img {
+  background-color: transparent;
+  /* 设置按钮背景色为透明 */
+  width: 100px;
+  /* 设置图像宽度为 100 像素 */
+  height: auto;
+  /* 让高度自适应，保持宽高比 */
+}
+.main-page-pet .choosePet{
+  position: relative;
+  top: -50px;
 }
 /* 主页面右边 */
 .main-right {

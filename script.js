@@ -191,6 +191,8 @@ function restart() {
 //时钟 end
 
 
+
+//右下 任务列表 start
 let selectedRow = null;
 
 // 编辑任务
@@ -239,7 +241,7 @@ function toggleCheckbox(checkbox) {
     if (cb !== checkbox) {
       cb.checked = false; // 只允许一个勾选按钮被选中
     }
-    if(cb === checkbox){
+    if (cb === checkbox) {
       let selectedRow = checkbox.parentElement.parentElement;
       let secondCellContent = selectedRow.cells[1].textContent;
       document.getElementById('task-target').textContent = secondCellContent;
@@ -267,9 +269,45 @@ function updateTaskNumbers() {
 
 function tableUpdate() {
   let task_times = parseInt(document.getElementById('times').value);
-  let Seconds = parseInt(((document.getElementById('minute').value * 60) + parseInt(document.getElementById('second').value))*task_times);
+  let Seconds = parseInt(((document.getElementById('minute').value * 60) + parseInt(document.getElementById('second').value)) * task_times);
   const minute = Math.floor(Seconds / 60);
   const second = Seconds % 60;
   document.getElementById('task-times').textContent = `第${nowTimes}次专注`;
   document.getElementById('time-summary').textContent = `${minute}分${second}秒`;
 }
+
+//右下 任务列表 end
+
+
+//主页面左下选择宠物 start
+
+function openPopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'block';
+}
+
+function optionSelected(option) {
+  switch (option) {
+    case 1:
+      alert('您选择了第一个宠物');
+      window.location.href = "pet1.html"; // 跳转到宠物 1 页面
+      break;
+    case 2:
+      alert('您选择了第二个宠物');
+      window.location.href = "pet2.html"; // 跳转到宠物 2 页面
+      break;
+    case 3:
+      alert('您选择了第三个宠物');
+      window.location.href = "pet3.html"; // 跳转到宠物 3 页面
+      break;
+    default:
+      alert('无效的选项');
+  }
+}
+
+function closePopup() {
+  const popup = document.getElementById('popup');
+  popup.style.display = 'none';
+}
+
+//主页面左下选择宠物 end

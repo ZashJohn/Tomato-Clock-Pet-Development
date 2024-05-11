@@ -36,6 +36,7 @@
         </div>
         <!-- 左下 -->
         <div class="main-left-bottom">
+          <!-- 左下 时钟 -->
           <div class="clock">
             <label for="countdown">请输入专注时间</label>
             <input type="number" id="minute" min="0" max="60" placeholder="分">
@@ -52,6 +53,22 @@
                 <p id="clock-title">未开始</p>
                 <div id="timer">00:00</div>
               </div>
+            </div>
+          </div>
+          <!-- 左下 选择宠物 -->
+          <div class="main-page-pet">
+            <button class="choosePet" onclick="openPopup()">宠物</button>
+            <div id="popup" class="popup">
+              <h2>请选择您喜欢的宠物</h2>
+              <button class="btn" onclick="optionSelected(1)">
+                <img src="./images/pet1.jpg" alt="宠物 1">
+              </button>
+              <button class="btn" onclick="optionSelected(2)">
+                <img src="./images/pet2.jpg" alt="宠物 2">
+              </button>
+              <button class="btn" onclick="optionSelected(3)">
+                <img src="./images/pet3.jpg" alt="宠物 3">
+              </button>
             </div>
           </div>
         </div>
