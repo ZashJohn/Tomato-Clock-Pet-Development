@@ -1,10 +1,14 @@
+body{
+  box-sizing: border-box;
+}
+
 .patato {
   display: flex;
   position: relative;
 }
 
 .nav {
-  flex: 0 0 10%;
+  flex: 1;
   padding: 10px 0;
   height: 100vh;
   background-color: #e3e3e3;
@@ -12,7 +16,7 @@
 }
 
 .main {
-  flex: 1;
+  flex: 9;
   height: 100vh;
   background-image: url("./images/main.png");
   background-repeat: no-repeat;
@@ -20,6 +24,10 @@
   background-size: cover;
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
+}
+.main iframe{
+  width: 100%;
+  height: 100%;
 }
 
 .nav li {
@@ -56,6 +64,8 @@ ul .self {
   height: 50px;
 }
 
+
+/* 主页面 */
 /* 主页面左边 */
 .main-left {
   flex: 2;

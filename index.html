@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link href="./styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
   <title>pomotodo</title>
   <script src="./script.js"></script>
 </head>
@@ -14,165 +14,15 @@
     <!-- 左侧导航栏-->
     <div class="nav">
       <ul>
-        <li><a class="active" href="#home">主页</a></li>
-        <li><a href="#pet">宠物</a></li>
-        <li><a href="#community">社区</a></li>
-        <li class="self"><a href="#person"><img src="./images/logo-mi2.png"></a></li>
+        <li><a class="active" href="#home" onclick="changeToMainpage()">主页</a></li>
+        <li><a href="#pet" onclick="changeToPetpage()">宠物</a></li>
+        <li><a href="#community" onclick="changeToCommunitypage()">社区</a></li>
+        <li class="self"><a href="#person" onclick="changeToUserpage()"><img src="./images/logo-mi2.png"></a></li>
       </ul>
     </div>
     <!-- 右侧主页面 -->
     <div class="main">
-      <!-- 主页面左边 -->
-      <div class="main-left">
-        <!-- 左上 -->
-        <div class="main-left-top">
-          <table border="1" class="task-left">
-            <tr>
-              <td id="task-target">目标</td>
-              <td id="task-times">次数</td>
-              <td id="time-summary">时间总结</td>
-            </tr>
-          </table>
-        </div>
-        <!-- 左下 -->
-        <div class="main-left-bottom">
-          <!-- 左下 时钟 -->
-          <div class="clock">
-            <label for="countdown">请输入专注时间</label>
-            <input type="number" id="minute" min="0" max="60" placeholder="分">
-            <input type="number" id="second" min="1" max="60" placeholder="秒">
-            <span>专注次数</span>
-            <input type="number" id="times" min="1" value="1">
-            <span>休息时间</span>
-            <input type="number" id="breakTime" min="1" max="60" value="5">
-            <button onclick="startTimer()" class="start">开始</button>
-            <button onclick="stopTimer()" class="end">停止</button>
-            <button onclick="restart()" class="restart">重置</button>
-            <div class="circle">
-              <div class="inner-circle">
-                <p id="clock-title">未开始</p>
-                <div id="timer">00:00</div>
-              </div>
-            </div>
-          </div>
-          <!-- 左下 选择宠物 -->
-          <div class="main-page-pet">
-            <button class="choosePet" onclick="openPopup()">宠物</button>
-            <div id="popup" class="popup">
-              <h2>请选择您喜欢的宠物</h2>
-              <button class="btn" onclick="optionSelected(1)">
-                <img src="./images/pet1.jpg" alt="宠物 1">
-              </button>
-              <button class="btn" onclick="optionSelected(2)">
-                <img src="./images/pet2.jpg" alt="宠物 2">
-              </button>
-              <button class="btn" onclick="optionSelected(3)">
-                <img src="./images/pet3.jpg" alt="宠物 3">
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 主页面右边 -->
-      <div class="main-right">
-        <!-- 右上 日历 -->
-        <div class="main-right-top">
-          <h2 id="currentMonth"></h2>
-
-          <table id="calendar">
-            <thead>
-              <tr>
-                <th>日</th>
-                <th>一</th>
-                <th>二</th>
-                <th>三</th>
-                <th>四</th>
-                <th>五</th>
-                <th>六</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Days will be inserted here with JavaScript -->
-            </tbody>
-          </table>
-        </div>
-        <!-- 右下 任务列表 -->
-        <div class="main-right-bottom">
-          <p class="task-title">task-list</p>
-          <table border="1" class="task-list">
-            <tr>
-              <th class="task-number">任务数</th>
-              <th>任务</th>
-              <th>状态</th> <!-- 新添加的状态栏列 -->
-              <th>操作</th> <!-- 新添加的操作栏列 -->
-            </tr>
-            <tr onclick="selectTask(this)">
-              <td>1</td>
-              <td class="editable" contenteditable="true">任务 1</td>
-              <td><input type="checkbox" onclick="toggleCheckbox(this)"></td> <!-- 新添加的勾选按钮 -->
-              <td><button onclick="deleteRow(this)">删除</button></td> <!-- 新添加的删除按钮 -->
-            </tr>
-            <!-- 其他任务行 -->
-          </table>
-          <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
-          <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
-          <p class="partition"></p>
-          <script>
-            //日历 strat
-            // 获取当前日期
-            let today = new Date();
-
-            // 获取当前月份的第一天
-            let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-
-            // 获取当前月份的最后一天
-            let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-            // 获取当前月份的天数
-            let daysInMonth = lastDayOfMonth.getDate();
-
-            // 获取当前月份的第一天是星期几
-            let firstDayOfWeek = firstDayOfMonth.getDay();
-
-            // 获取日历表格的引用
-            let calendarBody = document.querySelector('#calendar tbody');
-
-            // 获取显示月份的元素
-            let currentMonthElement = document.getElementById('currentMonth');
-            currentMonthElement.textContent = `${firstDayOfMonth.getFullYear()}年${firstDayOfMonth.getMonth() + 1}月`;
-
-            // 清空日历表格的内容
-            calendarBody.innerHTML = '';
-
-            // 创建日期表格
-            let date = 1;
-            for (let i = 0; i < 6; i++) {
-              let row = document.createElement('tr');
-              for (let j = 0; j < 7; j++) {
-                if (i === 0 && j < firstDayOfWeek) {
-                  // 创建空单元格直到第一天开始
-                  let cell = document.createElement('td');
-                  row.appendChild(cell);
-                } else if (date > daysInMonth) {
-                  // 如果日期超出当前月份的天数，停止创建单元格
-                  break;
-                } else {
-                  // 创建带有日期的单元格
-                  let cell = document.createElement('td');
-                  cell.textContent = date;
-                  if (date === today.getDate() && today.getMonth() === firstDayOfMonth.getMonth() && today.getFullYear() === firstDayOfMonth.getFullYear()) {
-                    cell.classList.add('today');
-                  }
-                  row.appendChild(cell);
-                  date++;
-                }
-              }
-              calendarBody.appendChild(row);
-            }
-            //日历 end
-          </script>
-        </div>
-      </div>
+      <iframe src="./mainpage.html" scrolling="no" frameborder="0"></iframe>
     </div>
   </div>
 </body>

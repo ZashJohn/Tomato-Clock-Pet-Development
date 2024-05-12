@@ -311,3 +311,29 @@ function closePopup() {
 }
 
 //主页面左下选择宠物 end
+
+//左侧导航栏页面定位函数 start
+function changeToMainpage(){
+  var iframe = document.querySelector('iframe');
+  // 设置 iframe 的 src 属性为百度网址
+  iframe.src = './mainpage.html';
+}
+
+function changeToPetpage(){
+  var iframe = document.querySelector('iframe');
+  // 设置 iframe 的 src 属性为百度网址
+  iframe.src = './petpage.html';
+}
+
+function changeToCommunitypage(){
+  var iframe = document.querySelector('iframe');
+  // 设置 iframe 的 src 属性为百度网址
+  iframe.src = './communitypage.html';
+}
+
+function changeToUserpage(){
+  var iframe = document.querySelector('iframe');
+  // 设置 iframe 的 src 属性为百度网址
+  iframe.src = './userpage.html';
+}
+//左侧导航栏页面定位函数 end
