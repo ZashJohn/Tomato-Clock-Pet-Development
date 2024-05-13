@@ -309,7 +309,6 @@ function closePopup() {
   const popup = document.getElementById('popup');
   popup.style.display = 'none';
 }
-
 //主页面左下选择宠物 end
 
 //左侧导航栏页面定位函数 start
