@@ -1,0 +1,283 @@
+.patato {
+  display: flex;
+  position: relative;
+}
+
+.nav {
+  flex: 1;
+  padding: 10px 0;
+  height: 100vh;
+  background-color: #e3e3e3;
+  box-sizing: border-box;
+}
+
+.main {
+  flex: 9;
+  height: 100vh;
+  background-image: url("./images/main.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
+.main iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mainpage{
+  flex: 9;
+  height: 100vh;
+}
+.nav li {
+  padding: 8px 0;
+  list-style: none;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.nav li a {
+  display: block;
+  text-decoration: none;
+  color: #1772f6;
+}
+
+.nav li:hover {
+  background-color: #4e4a48;
+}
+
+.nav li a:hover {
+  color: #ff6700;
+}
+
+ul .self {
+  position: absolute;
+  bottom: 30px;
+  padding-left: 10px;
+}
+
+.self img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 主页面左边 */
+.main-left {
+  flex: 2;
+}
+
+/* 左上 */
+.main-left .main-left-top {
+  height: 30%;
+  padding: 30px;
+  text-align: center;
+}
+
+.main-left .main-left-top table {
+  width: 60%;
+  height: 30%;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 左下--计时器 */
+.main-left .main-left-bottom {
+  height: 70%;
+}
+
+.clock {
+  text-align: center;
+}
+
+input {
+  border-radius: 5px;
+  background-color: #ebf1f0;
+}
+
+button {
+  background-color: rgb(152, 190, 152);
+  color: white;
+  width: 57px;
+  height: 32px;
+  border: 0;
+  font-size: 16px;
+  box-sizing: content-box;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: rgb(63, 117, 63);
+}
+
+
+
+
+
+input[type="number"],
+button {
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+input {
+  width: 85px;
+}
+
+.main-left-bottom .clock .start {
+  position: relative;
+  left: -30px;
+}
+
+.main-left-bottom .clock .end {
+  position: relative;
+  right: -5px;
+}
+
+.main-left-bottom .clock .restart {
+  position: relative;
+  left: 30px;
+}
+
+/* 左下--选择宠物 */
+
+.btn {
+  display: inline-block;
+  padding: 6px 10px;
+  /* 调整按钮的内边距 */
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  /* 将按钮的背景颜色设置为透明 */
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url('./images/background.jpg');
+  /* 设置背景图片 */
+  background-size: contain;
+  /* 设置背景图片大小为包含在元素中 */
+  background-repeat: no-repeat;
+  /* 防止背景图片重复 */
+  background-position: center;
+  /* 将背景图片居中显示 */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  text-align: center;
+  /* 让内部文字居中显示 */
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+.btn img {
+  background-color: transparent;
+  /* 设置按钮背景色为透明 */
+  width: 100px;
+  /* 设置图像宽度为 100 像素 */
+  height: auto;
+  /* 让高度自适应，保持宽高比 */
+}
+.main-page-pet .choosePet{
+  position: relative;
+  top: -50px;
+}
+/* 主页面右边 */
+.main-right {
+  flex: 1;
+}
+
+/* 右上--日历 */
+.main-right-top {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.3);
+
+}
+
+th,
+td {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+td {
+  cursor: pointer;
+}
+
+.today {
+  background-color: rgba(135, 225, 135, 0.5);
+}
+
+/* 右下--任务列表 */
+.task-list .task-number {
+  width: 20%; /* 设置任务数列的宽度 */
+}
+
+.task-list th:nth-child(2) {
+  width: 40%; /* 设置任务列的宽度 */
+}
+
+.task-list th:nth-child(3) {
+  width: 10%; /* 设置状态列的宽度 */
+}
+
+.task-list th:nth-child(4) {
+  width: 10%; /* 设置操作列的宽度 */
+}
+
+ 
+.main-right-bottom {
+  width: 80%; /* 根据需要调整宽度 */
+}
+
+.task-title {
+  font-size: 30px;
+}
+
+.task-list {
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-left: 10px; /* 移除默认的左侧边距 */
+  padding-left: 0; /* 移除默认的左侧填充 */
+}
+
+.task-list .task-number {
+  text-align: left;
+  width: 10%; /* 调整左侧元素宽度 */
+}
+
+.task-list tr td {
+  height: 50px;
+}
+
+.task-list {
+  margin-top: 40px; /* 设置顶部外边距 */
+}
+

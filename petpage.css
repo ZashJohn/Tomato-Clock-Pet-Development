@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 让容器充满视口高度 */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./images/forest.jpg');
+    background-size: cover;
+}
+.pet{
+    width: 300px; /* 调整宠物和背包的宽度 */
+    height: 300px; /* 调整宠物和背包的高度 */
+}
+#exp {
+    color: white; /* 设置文本颜色为白色 */
+}
+
+.bag{
+    width: 200px; /* 调整宠物和背包的宽度 */
+    height: 200px; /* 调整宠物和背包的高度 */
+}
+.progress-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+}
+
+button {
+    margin-top: 10px; /* 调整按钮顶部间距 */
+}
+
+#exp {
+    margin-top: 10px; /* 调整经验值文本顶部间距 */
+}

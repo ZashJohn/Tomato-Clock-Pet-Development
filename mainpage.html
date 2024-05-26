@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./mainpage.css" rel="stylesheet">
+  <title>pomotodo</title>
+  <script src="./script.js"></script>
+</head>
+
+
+<body>
+  <!-- 右侧主页面 -->
+  <div class="main">
+    <!-- 主页面左边 -->
+    <div class="main-left">
+      <!-- 左上 -->
+      <div class="main-left-top">
+        <table border="1" class="task-left">
+          <tr>
+            <td id="task-target">目标</td>
+            <td id="task-times">次数</td>
+            <td id="time-summary">时间总结</td>
+          </tr>
+        </table>
+      </div>
+      <!-- 左下 -->
+      <!-- 右下 任务列表 -->
+      <div class="main-right-bottom">
+        <p class="task-title">task-list</p>
+        <table border="1" class="task-list">
+          <tr>
+            <th class="task-number">任务数</th>
+            <th>任务</th>
+            <th>状态</th> <!-- 新添加的状态栏列 -->
+            <th>操作</th> <!-- 新添加的操作栏列 -->
+          </tr>
+          <tr onclick="selectTask(this)">
+            <td>1</td>
+            <td class="editable" contenteditable="true">任务 1</td>
+            <td><input type="checkbox" onclick="toggleCheckbox(this)"></td> <!-- 新添加的勾选按钮 -->
+            <td><button onclick="deleteRow(this)">删除</button></td> <!-- 新添加的删除按钮 -->
+          </tr>
+          <!-- 其他任务行 -->
+        </table>
+        <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
+        <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
+        <p class="partition"></p>
+    </div>
+    </div>
+    <!-- 主页面右边 -->
+    <class="main-right">
+      <!-- 右上 日历 -->
+      <div class="main-right-top">
+        <h2 id="currentMonth"></h2>
+
+        <table id="calendar">
+          <thead>
+            <tr>
+              <th>日</th>
+              <th>一</th>
+              <th>二</th>
+              <th>三</th>
+              <th>四</th>
+              <th>五</th>
+              <th>六</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Days will be inserted here with JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      <!-- 右下 任务列表 -->
+     
+        <script>
+          //日历 strat
+          // 获取当前日期
+          let today = new Date();
+
+          // 获取当前月份的第一天
+          let firstDayOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+          // 获取当前月份的最后一天
+          let lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+          // 获取当前月份的天数
+          let daysInMonth = lastDayOfMonth.getDate();
+
+          // 获取当前月份的第一天是星期几
+          let firstDayOfWeek = firstDayOfMonth.getDay();
+
+          // 获取日历表格的引用
+          let calendarBody = document.querySelector('#calendar tbody');
+
+          // 获取显示月份的元素
+          let currentMonthElement = document.getElementById('currentMonth');
+          currentMonthElement.textContent = `${firstDayOfMonth.getFullYear()}年${firstDayOfMonth.getMonth() + 1}月`;
+
+          // 清空日历表格的内容
+          calendarBody.innerHTML = '';
+
+          // 创建日期表格
+          let date = 1;
+          for (let i = 0; i < 6; i++) {
+            let row = document.createElement('tr');
+            for (let j = 0; j < 7; j++) {
+              if (i === 0 && j < firstDayOfWeek) {
+                // 创建空单元格直到第一天开始
+                let cell = document.createElement('td');
+                row.appendChild(cell);
+              } else if (date > daysInMonth) {
+                // 如果日期超出当前月份的天数，停止创建单元格
+                break;
+              } else {
+                // 创建带有日期的单元格
+                let cell = document.createElement('td');
+                cell.textContent = date;
+                if (date === today.getDate() && today.getMonth() === firstDayOfMonth.getMonth() && today.getFullYear() === firstDayOfMonth.getFullYear()) {
+                  cell.classList.add('today');
+                }
+                row.appendChild(cell);
+                date++;
+              }
+            }
+            calendarBody.appendChild(row);
+          }
+          //日历 end
+        </script>
+      
+    </div>
+  </div>
+</body>
+</html>

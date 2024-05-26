@@ -1,0 +1,130 @@
+body{
+    background-image: url("./images/tree.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 分享内容区域 start*/
+.main-content-area{
+    flex: 8;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 分享内容区域 end*/
+
+/* 分享卡片 start*/
+.content-left, .content-right{
+    width: 800px;
+    height: 120px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    position: relative;
+} 
+/* 头像在左边的分享卡片 */
+/* 左侧头像 */
+.content-left .left-left{
+    width: 120px;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+.content-left .left-right{
+    width: 680px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+}
+/* 头像在右边的分享卡片 */
+.content-right .right-left{
+    width: 680px;
+    height: 100%;
+    text-align: right;
+    overflow: hidden;
+}
+/* 右侧头像 */
+/* 将按钮放在卡片的最左边 */
+.content-right .right-left {
+    position: absolute; /* 绝对定位 */
+    padding-left: -10px; /* 添加左边距 */
+     
+    top: 0; /* 距离父容器顶部的距离，根据你的需要调整 */
+  }
+  
+  /* 调整头像的样式 */
+  .main-content-area img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  /* 如果需要调整头像容器的样式 */
+  .content-right .right-right {
+    width: 120px;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+/* 分享卡片 end*/
+/* 发送分享区域 start */
+.send{
+    flex: 2;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: relative;
+}
+button{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* 发送分享区域 end */
+.like-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .like-img {
+    width: 30px; /* 设置图片宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+  }
+
+  .like-count {
+    margin-left: 5px; /* 点赞数与图片之间留出一些间距 */
+  } .like-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .like-img {
+    width: 30px; /* 设置图片宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+  }
+
+  .like-count {
+    margin-left: 5px; /* 点赞数与图片之间留出一些间距 */
+  }
+  
