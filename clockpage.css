@@ -200,26 +200,32 @@ button:hover::before {
   
   .main-left-bottom .clock .start {
     position: relative;
-    left: -30px;
+    left: 10px;
   }
   
   .main-left-bottom .clock .end {
     position: relative;
-    right: -5px;
+    left: 30px;
   }
   
   .main-left-bottom .clock .restart {
     position: relative;
-    left: 30px;
+    left: 50px;
   }
   
   .clock input[type="number"] {
     background-color: #689168; /* 设置输入框的背景颜色为浅灰色 */
     border: 1px solid #ccc; /* 设置输入框的边框为浅灰色 */
+    color: #ffffff; /* 设置输入框的字体颜色为白色 */
     padding: 5px; /* 设置输入框的内边距 */
     border-radius: 5px; /* 设置输入框的边框圆角 */
     margin-right: 10px; /* 设置输入框之间的右边距 */
 }
+
+::placeholder {
+  color: #000000; /* 设置占位符的字体颜色为灰色 */
+}
+
 
 .clock label, /* 选择 label 元素 */
 .clock span { /* 选择 span 元素 */

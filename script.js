@@ -312,6 +312,12 @@ function closePopup() {
 //主页面左下选择宠物 end
 
 //左侧导航栏页面定位函数 start
+function changeToClockpage(){
+  var iframe = document.querySelector('iframe');
+  // 设置 iframe 的 src 属性为百度网址
+  iframe.src = './clockpage.html';
+}
+
 function changeToMainpage(){
   var iframe = document.querySelector('iframe');
   // 设置 iframe 的 src 属性为百度网址
@@ -335,4 +341,6 @@ function changeToUserpage(){
   // 设置 iframe 的 src 属性为百度网址
   iframe.src = './userpage.html';
 }
+
+
 //左侧导航栏页面定位函数 end

@@ -7,7 +7,7 @@
   flex: 1;
   padding: 10px 0;
   height: 100vh;
-  background-color: #e3e3e3;
+  background-color:rgba(125, 162, 125, 0.5);
   box-sizing: border-box;
 }
 
@@ -39,15 +39,15 @@
 .nav li a {
   display: block;
   text-decoration: none;
-  color: #1772f6;
+  color: #070707;
 }
 
 .nav li:hover {
-  background-color: #4e4a48;
+  background-color: rgba(0, 128, 0, 0.5);
 }
 
 .nav li a:hover {
-  color: #ff6700;
+  color: #5e5c5a;
 }
 
 ul .self {

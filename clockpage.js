@@ -70,6 +70,8 @@ function startTimer() {
 }
 
 
+
+
 //暂停时间
 function stopTimer() {
   //当工作时间暂停时
@@ -291,6 +293,12 @@ function changeToMainpage(){
   var iframe = document.querySelector('iframe');
   // 设置 iframe 的 src 属性为百度网址
   iframe.src = './mainpage.html';
+  if (isTimerRunning) {
+    alert("专注的时候不要做其他事情哦！");
+    return false; // 阻止默认行为（不进行页面跳转）
+  }
+  // 如果时钟不在运行，则允许跳转到时钟页面
+  return true;
 }
 
 function changeToPetpage(){

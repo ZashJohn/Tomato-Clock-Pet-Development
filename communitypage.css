@@ -12,23 +12,27 @@ body{
 }
 
 /* 分享内容区域 start*/
-.main-content-area{
-    flex: 8;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.main-content-area {
+  flex: 8;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 }
+
 /* 分享内容区域 end*/
 
 /* 分享卡片 start*/
-.content-left, .content-right{
-    width: 800px;
-    height: 120px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    position: relative;
-} 
+.content-left, .content-right {
+  width: 800px;
+  height: 120px;
+  border: 2px solid #000000;
+  margin-top: 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.6); /* 黑色背景，透明度为 0.5 */
+}
+
 /* 头像在左边的分享卡片 */
 /* 左侧头像 */
 .content-left .left-left{
