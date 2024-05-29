@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./styles.css">
+  <script src="./changepage.js"></script>
   <title>pomotodo</title>
-  <script src="./script.js"></script>
 </head>
 
 
 <body>
+  <button>测试按钮</button>
   <div id="pomodoro" class="patato">
     <!-- 左侧导航栏-->
     <div class="nav">
@@ -22,9 +23,9 @@
     </div>
     <!-- 右侧主页面 -->
     <div class="main">
-      <iframe src="./mainpage.html" scrolling="no" frameborder="0"></iframe>
+      <iframe src="./mainpage.html" scrolling="no" frameborder="0" id="iframeId"></iframe>
     </div>
   </div>
+  <script src="./renderer.js"></script>
 </body>
-
 </html>

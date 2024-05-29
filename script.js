@@ -68,6 +68,17 @@ function startTimer() {
     isTimerRunning = true;
     timerInterval = setInterval(updateTimer, 1000);
   }
+  function sendTimeContentToParent() {
+    var table_time = totalSeconds;  // 替换成实际的表格 id
+    var tableData = table_time;
+    alert('测试');
+    alert(tableData);
+    // 获取到任务总时间，将内容存储到 tableData 变量中
+    tableData = table_time;
+    // 将表格数据发送给父页面
+    window.parent.postMessage(tableData, '*');
+  }
+  sendTimeContentToParent();
 }
 
 
@@ -212,9 +223,28 @@ function saveTasks() {
       });
     }
   });
+  sendTableContentToParent();
+}
+// 把iframe标签中的数据发送给父页面
+function sendTableContentToParent() {
+  var table = document.getElementById('task-list-id');  // 替换成实际的表格 id
+  var tableData = [];
+
+  // 遍历表格行和单元格，将内容存储到 tableData 数组中
+  for (var i = 1; i < table.rows.length; i++) {
+    var rowData = [];
+    for (var j = 0; j < (table.rows[i].cells.length - 2); j++) {
+      rowData.push(table.rows[i].cells[j].innerText);
+    }
+    tableData.push(rowData);
+  }
+
+  // 将表格数据发送给父页面
+  window.parent.postMessage(tableData, '*');
 }
 
-// 新建任务
+
+// 新建任务(创建表格行)
 function addNewTask() {
   const taskList = document.querySelector('.task-list');
   const rowCount = taskList.rows.length;
@@ -224,6 +254,44 @@ function addNewTask() {
     '<td><input type="checkbox" onclick="toggleCheckbox(this)"></td>' + // 新添加的勾选按钮列
     '<td><button onclick="deleteRow(this)">删除</button></td>'; // 新添加的删除按钮列
 }
+
+//加载页面之后初始化任务列表
+window.addEventListener("load", () => {
+  var tasknum = new Object();
+  // 监听message事件
+  window.addEventListener('message', function (event) {
+    // 确定消息来源是否可信
+    if (event.origin !== 'file://') {
+      return;
+    }
+    // 处理接收到的消息
+    tasknum = event.data;
+    console.log('接收到的消息: ', tasknum.data);
+    console.log('接收到的消息: ' + tasknum.tasknums);
+    //添加指定的行数
+    for (let i = 1; i < tasknum.tasknums; i++) {
+      addNewTask();
+      //console.log('新建一行');
+    }
+    //修改任务行的内容
+    let tablecom = document.getElementById('task-list-id');
+    let rows = tablecom.getElementsByTagName("tr");
+    for (let i = 1; i < rows.length; i++) {
+      let cells = rows[i].getElementsByTagName("td");
+      for (let j = 1; j < (cells.length) - 2; j++) {
+        cells[j].innerText = tasknum.data[i - 1].name
+        console.log('这是第二个测试', tasknum.data[i - 1].name);
+      }
+    }
+  }, false);
+
+  //console.log(tablecom);
+
+
+
+
+
+})
 
 // 选择任务
 function selectTask(row) {
@@ -235,16 +303,24 @@ function selectTask(row) {
 }
 
 // 切换勾选按钮状态
+var selectedId;
 function toggleCheckbox(checkbox) {
-  const checkboxes = document.querySelectorAll('.task-list input[type="checkbox"]');
+  let checkboxes = document.querySelectorAll('.task-list input[type="checkbox"]');
   checkboxes.forEach(cb => {
     if (cb !== checkbox) {
       cb.checked = false; // 只允许一个勾选按钮被选中
     }
     if (cb === checkbox) {
+      //通过勾选框获取到父容器所在的行
       let selectedRow = checkbox.parentElement.parentElement;
+      //console.log(selectedRow.cells[1].textContent);
+      selectedId = selectedRow.cells[0].textContent;
       let secondCellContent = selectedRow.cells[1].textContent;
       document.getElementById('task-target').textContent = secondCellContent;
+
+      var checkboxId = new CustomEvent('firstMessageType', { detail: { data: selectedId } });
+      //alert('测试复选框id' + selectedId);
+      window.dispatchEvent(checkboxId);
     }
   });
   tableUpdate();
@@ -309,30 +385,101 @@ function closePopup() {
   const popup = document.getElementById('popup');
   popup.style.display = 'none';
 }
-//主页面左下选择宠物 end
 
-//左侧导航栏页面定位函数 start
-function changeToMainpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './mainpage.html';
+
+//用户登录和注册页面 start
+// 模拟用户数据库
+var users = [];
+
+// 隐藏注册表单，显示登录表单
+function showLoginForm() {
+  document.querySelector('.register-container').style.display = 'none';
+  document.querySelector('.login-container').style.display = 'block';
 }
 
-function changeToPetpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './petpage.html';
+// 隐藏登录表单，显示注册表单
+function showRegisterForm() {
+  document.querySelector('.login-container').style.display = 'none';
+  document.querySelector('.register-container').style.display = 'block';
 }
 
-function changeToCommunitypage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './communitypage.html';
+// 注册函数
+function register(event) {
+  event.preventDefault(); // 阻止表单提交默认行为
+
+  // 获取表单数据
+  var fullname = document.getElementById('fullname').value;
+  var email = document.getElementById('registerEmail').value;
+  var password = document.getElementById('registerPassword').value;
+  var confirmPassword = document.getElementById('confirmPassword').value;
+
+  // 简单的密码确认
+  if (password !== confirmPassword) {
+    alert("两次输入密码不一致");
+    return;
+  }
+
+  // 创建用户对象
+  var newUser = {
+    fullname: fullname,
+    email: email,
+    password: password
+  };
+
+  // 将新用户添加到用户数组中
+  users.push(newUser);
+
+  // 清空注册表单
+  document.getElementById('fullname').value = '';
+  document.getElementById('registerEmail').value = '';
+  document.getElementById('registerPassword').value = '';
+  document.getElementById('confirmPassword').value = '';
+
+  // 提示注册成功
+  alert("注册成功，请登录！");
+
+  // 切换到登录表单
+  showLoginForm();
 }
 
-function changeToUserpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './userpage.html';
+// 登录函数
+function login(event) {
+  event.preventDefault(); // 阻止表单提交默认行为
+
+  // 获取表单数据
+  var email = document.getElementById('loginEmail').value;
+  var password = document.getElementById('loginPassword').value;
+
+  // 在用户数组中查找匹配的用户
+  var foundUser = users.find(function (user) {
+    return user.email === email && user.password === password;
+  });
+
+  if (foundUser) {
+    // 登录成功
+    alert("登录成功");
+    isLogin = true;
+    // 设置 iframe 的 src 属性为个人中心页面
+    window.location.href = './userpage.html';
+    console.log("用户登录成功:", foundUser);
+  } else {
+    // 登录失败
+    alert("无效的邮箱或错误的密码");
+  }
 }
-//左侧导航栏页面定位函数 end
+
+// 获取表单元素并添加事件监听器
+document.getElementById('registerForm').addEventListener('submit', register);
+document.getElementById('loginForm').addEventListener('submit', login);
+
+// 添加事件监听器，以切换表单的显示状态
+document.getElementById('registerLink').addEventListener('click', showRegisterForm);
+document.getElementById('loginLink').addEventListener('click', showLoginForm);
+
+// 默认显示登录表单
+showLoginForm();
+//用户登录和注册页面 end
+
+
+
+

@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <link href="./mainpage.css" rel="stylesheet">
   <title>pomotodo</title>
-  <script src="./script.js"></script>
 </head>
 
 
 <body>
+
   <!-- 右侧主页面 -->
   <div class="main">
     <!-- 主页面左边 -->
@@ -89,7 +89,7 @@
       <!-- 右下 任务列表 -->
       <div class="main-right-bottom">
         <p class="task-title">task-list</p>
-        <table border="1" class="task-list">
+        <table border="1" class="task-list" id="task-list-id">
           <tr>
             <th class="task-number">任务数</th>
             <th>任务</th>
@@ -104,7 +104,7 @@
           </tr>
           <!-- 其他任务行 -->
         </table>
-        <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
+        <button onclick="saveTasks()" class="action-button" id="preserve">保存</button> <!-- 保存按钮 -->
         <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
         <p class="partition"></p>
         <script>
@@ -164,5 +164,6 @@
       </div>
     </div>
   </div>
+  <script src="./script.js"></script>
 </body>
 </html>
