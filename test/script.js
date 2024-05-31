@@ -25,16 +25,20 @@ function submit(event) {
         },
         body: JSON.stringify({ name: name, email: email, password: password })
     })
-    .then(response => {
-        if (response.ok) {
-            alert('注册成功！');
+    .then(response => response.json())
+    .then(data => {
+        if (data.error === '邮箱已被注册') {
+            alert('邮箱已被注册，请更换邮箱');
+        } else if (data.message === '数据已成功存储到数据库') {
+            alert('注册成功！' + '用户信息：' + data.name + ' - ' + data.email);
         } else {
-            alert('注册失败，请重试。');
+            throw new Error(data.error || '注册失败');
         }
     })
     .catch(error => {
-        console.error('Error:', error);
+        alert(error.message);
     });
+
 }
 function login(event) {
     event.preventDefault(); // 阻止表单默认提交行为
@@ -72,3 +76,5 @@ document.getElementById('loginLink').addEventListener('click', showLoginForm);
 
 // 默认显示登录表单
 showLoginForm();
+
+
