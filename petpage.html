@@ -5,118 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Cards</title>
     <link rel="stylesheet" href="./petpage.css">
-    <script src="./petpage.js".js"></script>
-</head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-image: url('./images/forest.jpg');
-        background-size: cover;
-    }
-
-    .container {
-        text-align: center;
-        padding-top: 50px;
-    }
-
-    .pet {
-        width: 300px;
-        height: 340px;
-        margin-bottom: 20px;
-    }
-
-    .progress-bar {
-        width: 200px;
-        height: 20px;
-        background-color: #ddd;
-        border-radius: 10px;
-        overflow: hidden;
-        display: inline-block;
-    }
-
-    .progress {
-        height: 100%;
-        background-color: #4caf50;
-    }
-
-    .bag {
-        width: 100px;
-        height: 100px;
-        margin-bottom: 20px;
-    }
-
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #4caf50;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin: 10px;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-</style>
+    <script src="./petpage.js" defer></script>
 </head>
 <body>
     <div class="container">
-            <img src="./images/cat.png" alt="Pet" class="pet" id="petImage">
-            <div class="progress-bar">
-                <div class="progress" id="progress"></div>
-            </div>
-            <br>
-            <img src="./images/beibao.png" alt="Bag" class="bag" id="bagImage">
-            <br>
-            <button onclick="feedPet()">喂食</button>
-            <br>
-            <span id="exp">背包经验值: 100</span>
+        <div class="wallet">
+            <span class="money" id="walletAmount">￥10000</span>
         </div>
-
-<script>
-    let backpackExp = 100; // 背包初始经验值
-    let petProgress = 0; // 宠物进度条初始值
-
-    // 更新进度条和经验值显示
-    function updateUI() {
-        const progress = document.getElementById('progress');
-        const expDisplay = document.getElementById('exp');
-        const bagImage = document.getElementById('bagImage');
-
-        // 更新进度条
-        progress.style.width = `${petProgress}%`;
-
-        // 更新背包经验值显示
-        expDisplay.textContent = `背包经验值: ${backpackExp}`;
-
-        // 更新背包图片
-        if (backpackExp >= 50) {
-            bagImage.src = './images/bag_full.png';
-        } else {
-            bagImage.src = './images/bag_full.png';
-        }
-    }
-
-    // 喂食事件处理函数
-    function feedPet() {
-        if (backpackExp >= 50) {
-            backpackExp -= 50; // 从背包中扣除50经验值
-            petProgress += 20; // 宠物进度条增加20%
-            if (petProgress > 100) {
-                petProgress = 100; // 确保进度条不超过100%
-            }
-            updateUI();
-        } else {
-            alert("背包经验值不足，无法喂食！");
-        }
-    }
-
-    // 初始化界面
-    updateUI();
-</script>
+        <br>
+        <img src="./images/pet_level1.png" alt="Pet" class="pet" id="petImg">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <br>
+        <img src="./images/bag_full.png" alt="Bag" class="bag" id="bagImage">
+        <br>
+        <button onclick="feedPet()">喂食</button>
+        <br>
+        <span id="exp">背包经验值: 10000</span>
+        <br>
+        <div id="myPetsList"></div>
+    </div>
 </body>
 </html>

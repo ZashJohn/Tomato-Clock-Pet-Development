@@ -207,6 +207,7 @@ input {
 /* 右上--日历 */
 .main-right-top {
   width: 100%;
+  
 }
 
 table {
@@ -214,14 +215,15 @@ table {
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   background-color: rgba(255, 255, 255, 0.3);
-
+  
 }
 
 th,
 td {
   border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 10px;
+  padding: 15px;
   text-align: center;
+  
 }
 
 th {
@@ -230,6 +232,7 @@ th {
 
 td {
   cursor: pointer;
+
 }
 
 .today {
@@ -259,7 +262,8 @@ td {
 }
 
 .task-title {
-  font-size: 30px;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .task-list {

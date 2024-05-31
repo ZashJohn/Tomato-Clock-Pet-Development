@@ -106,10 +106,6 @@
 }
 
 
-
-
-
-
   input {
     border-radius: 5px;
     background-color: #cae6e0;
@@ -232,3 +228,22 @@ button:hover::before {
     color: #ffffff; /* 设置文本颜色为白色 */
 }
 
+/* 左上 */
+.clock .main-left-top {
+  flex: 2;
+}
+.clock .main-left-top {
+  height: 30%;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.clock  .main-left-top table {
+  width: 50%;
+  height: 30%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:rgba(255, 255, 255, 0.2);
+}
