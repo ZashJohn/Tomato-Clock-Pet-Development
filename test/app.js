@@ -42,7 +42,18 @@ app.post('/submit', (req, res) => {
             return res.status(500).json({ error: '数据库连接失败' });
         }
 
-        // 执行 SQL 查询
+       // 查询数据库中是否已存在相同邮箱信息
+       connection.query('SELECT * FROM user WHERE email = ?', [email], (err, results) => {
+        if (err) {
+            connection.release(); // 释放连接
+            return res.status(500).json({ error: '数据库查询失败' });
+        }
+
+        if (results.length > 0) {
+            connection.release(); // 释放连接
+            return res.status(400).json({ error: '邮箱已被注册' });
+        }
+         // 执行 SQL 查询
         connection.query('INSERT INTO user (name, email, pasword) VALUES (?, ?, ?)', [name, email, password], (err, result) => {
             connection.release(); // 释放连接
 
@@ -53,7 +64,9 @@ app.post('/submit', (req, res) => {
             res.status(200).json({ message: '数据已成功存储到数据库' });
         });
     });
+  });
 });
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
 
