@@ -1,0 +1,249 @@
+.patato {
+    display: flex;
+    position: relative;
+  }
+  
+  .nav {
+    flex: 1;
+    padding: 10px 0;
+    height: 100vh;
+    background-color: #e3e3e3;
+    box-sizing: border-box;
+  }
+  
+  .main {
+    flex: 9;
+    height: 100vh;
+    background-image: url("./images/BG.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+  }
+  
+  .main iframe {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mainpage{
+    flex: 9;
+    height: 100vh;
+  }
+  .nav li {
+    padding: 8px 0;
+    list-style: none;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  
+  .nav li a {
+    display: block;
+    text-decoration: none;
+    color: #1772f6;
+  }
+  
+  .nav li:hover {
+    background-color: #4e4a48;
+  }
+  
+  .nav li a:hover {
+    color: #ff6700;
+  }
+  
+  ul .self {
+    position: absolute;
+    bottom: 30px;
+    padding-left: 10px;
+  }
+  
+  .self img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* 主页面左边 */
+  .main-left {
+    flex: 2;
+  }
+  
+  /* 左上 */
+  .main-left .main-left-top {
+    height: 30%;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  .main-left .main-left-top table {
+    width: 60%;
+    height: 30%;
+    margin-top: 70px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* 左下--计时器 */
+  .main-left .main-left-bottom {
+    height: 70%;
+  }
+  
+  .clock {
+    text-align: center;
+  }
+  
+  
+  #clock-title {
+    font-family: sans-serif; /* 使用 Arial 字体族，如果用户计算机上没有 Arial 字体，则使用 sans-serif 字体族 */
+    font-size: 50px; /* 设置字体大小为 24 像素 */
+    color:  rgba(7, 7, 7, 0.6); /* 将字体颜色设置为深灰色 */
+    font-weight: bold; /* 设置字体为粗体 */
+    text-align: center; /* 设置文本居中对齐 */
+    text-transform: uppercase; /* 将文本转换为大写 */
+    letter-spacing: 3px; /* 设置字符间距为 2 像素 */
+}
+
+
+  input {
+    border-radius: 5px;
+    background-color: #cae6e0;
+  }
+  button {
+    background-color: rgb(121, 145, 122);
+    color: white;
+    width: 57px;
+    height: 32px;
+    border: 0;
+    font-size: 16px;
+    box-sizing: content-box;
+    border-radius: 5px;
+    margin-left: 10px;
+  }
+  
+  button:hover {
+    background-color: rgb(24, 86, 27);
+  }
+
+
+
+
+
+button:hover::before {
+    height: 100%; /* 鼠标悬停时显示全高度 */
+}
+
+ 
+  
+  #timer {
+    font-size: 6.5rem;
+    margin: 20px;
+    color: rgba(255, 255, 255, 0.65);
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: -60px;
+  }
+  
+  .circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: rgba(154, 154, 154, 0.1);
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+  }
+  
+  .inner-circle {
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background-color: rgba(160, 212, 200, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 3rem;
+    }
+    
+    .inner-circle p {
+    font-size: 50px;}
+  
+  input[type="number"],
+  button {
+    margin: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  
+  input {
+    width: 85px;
+  }
+  
+  .main-left-bottom .clock .start {
+    position: relative;
+    left: 10px;
+  }
+  
+  .main-left-bottom .clock .end {
+    position: relative;
+    left: 30px;
+  }
+  
+  .main-left-bottom .clock .restart {
+    position: relative;
+    left: 50px;
+  }
+  
+  .clock input[type="number"] {
+    background-color: #689168; /* 设置输入框的背景颜色为浅灰色 */
+    border: 1px solid #ccc; /* 设置输入框的边框为浅灰色 */
+    color: #ffffff; /* 设置输入框的字体颜色为白色 */
+    padding: 5px; /* 设置输入框的内边距 */
+    border-radius: 5px; /* 设置输入框的边框圆角 */
+    margin-right: 10px; /* 设置输入框之间的右边距 */
+}
+
+::placeholder {
+  color: #000000; /* 设置占位符的字体颜色为灰色 */
+}
+
+
+.clock label, /* 选择 label 元素 */
+.clock span { /* 选择 span 元素 */
+    color: #ffffff; /* 设置文本颜色为白色 */
+}
+
+/* 左上 */
+.clock .main-left-top {
+  flex: 2;
+}
+.clock .main-left-top {
+  height: 30%;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.clock  .main-left-top table {
+  width: 50%;
+  height: 30%;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color:rgba(255, 255, 255, 0.2);
+}

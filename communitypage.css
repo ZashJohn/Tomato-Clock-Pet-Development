@@ -1,0 +1,154 @@
+body {
+  background-image: url("./images/tree.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 分享内容区域 start */
+.main-content-area {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* 内容超出时滚动 */
+  padding-top: 20px; /* 顶部留空 */
+}
+
+/* 分享内容区域 end */
+
+/* 分享卡片 start */
+.content-left, .content-right {
+  width: 600px; /* 调整分享卡片的宽度 */
+  border: 2px solid #000000;
+  margin-top: 10px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+/* 头像在左边的分享卡片 */
+.content-left .left-left, .content-right .right-right {
+  width: 80px; /* 调整头像容器的宽度 */
+  height: 80px; /* 调整头像容器的高度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-left .left-left img, .content-right .right-right img {
+  width: 70px; /* 调整头像的宽度 */
+  height: 70px; /* 调整头像的高度 */
+  border-radius: 50%; /* 头像圆形 */
+}
+
+.content-left .left-right, .content-right .right-left {
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px; /* 调整内边距 */
+}
+
+/* 分享卡片 end */
+
+/* 发送分享区域 start */
+.send {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#comment-input {
+  width: 70%;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(45, 159, 121);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #87f5c9 ;
+}
+/* 发送分享区域 end */
+
+.like-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.like-img {
+  width: 30px;
+  height: auto;
+}
+
+.like-count {
+  margin-left: 5px;
+}
+
+
+/* 删除按钮样式 */
+.delete-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 60px; /* 调整按钮宽度 */
+  height: auto; /* 根据宽度自动调整高度 */
+  position: absolute;
+  top: 50%; /* 按钮垂直居中 */
+  right: 10px; /* 调整按钮距离右侧的距离 */
+  transform: translateY(-50%); /* 垂直居中 */
+  border-radius: 50%; /* 将按钮样式设置为圆形 */
+}
+/* 删除按钮内部元素（图标）样式 */
+.delete-btn {
+  color: black; /* 将按钮内部字体颜色设置为黑色 */
+  border-radius: 50%;
+}
+/* 删除按钮图标样式 */
+.delete-img {
+  width: 100%;
+  height: auto;
+}
