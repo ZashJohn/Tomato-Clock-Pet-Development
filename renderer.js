@@ -122,8 +122,8 @@ window.addEventListener('message', function (event) {
     if (event.origin !== 'file://') {  // 检查消息来源是否为本地文件
         return;
     }
-    if (typeof event.data === 'number') {
-        tableTime = event.data;
+    if (event.data.flag === 'nowtasktimeinformation') {
+        tableTime = event.data.data;
         var data_time = tableTime;
         console.log(data_time);
         connection.query('SELECT * FROM task_name', (error, results, fields) => {
@@ -141,7 +141,7 @@ window.addEventListener('message', function (event) {
                 console.error('插入数据失败: ' + error.stack);
                 return;
             }
-            console.log('新数据已被插入');
+            console.log('当前任务时间已修改');
         });
 
         //查询添加过数据的数据库

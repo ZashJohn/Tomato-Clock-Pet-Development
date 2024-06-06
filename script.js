@@ -81,19 +81,20 @@ function startTimer() {
   if (isStart) {
     isTimerRunning = true;
     timerInterval = setInterval(updateTimer, 1000);
+    sendTimeContentToParent();
   }
-  function sendTimeContentToParent() {
-    var table_time = (totalSeconds * times);  // 替换成实际的表格 id
-    var tableData = table_time;
-    alert('测试',tableData);
-    // 获取到任务总时间，将内容存储到 tableData 变量中
-    tableData = table_time;
-    // 将表格数据发送给父页面
-    window.parent.postMessage(tableData, '*');
-  }
-  sendTimeContentToParent();
 }
-
+function sendTimeContentToParent() {
+  var table_time = (totalSeconds * times);  // 替换成实际的表格 id
+  var tableData = {
+    data : table_time,
+    flag : 'nowtasktimeinformation'
+  };
+  console.log('测试---当前任务的时间为',tableData);
+  // 获取到任务总时间，将内容存储到 tableData 变量中
+  // 将表格数据发送给父页面
+  window.parent.postMessage(tableData, '*');
+}
 
 //暂停时间
 function stopTimer() {
