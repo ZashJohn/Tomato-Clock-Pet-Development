@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./clockpage.css" rel="stylesheet">
+  <title>pomotodo</title>
+  <script src="./script.js"></script>
+</head>
+
+
+<body>
+  <!-- 右侧主页面 -->
+  <div class="main">
+    <!-- 主页面左边 -->
+    <div class="main-left">
+      <!-- 左下 -->
+      <div class="main-left-bottom">
+        <!-- 左下 时钟 -->
+        <div class="clock">
+          <label for="countdown">请输入专注时间</label>
+          <input type="number" id="minute" min="25" max="60" placeholder="分">
+          <input type="number" id="second" min="1" max="60" placeholder="秒">
+          <span>专注次数</span>
+          <input type="number" id="times" min="1" value="1">
+          <span>休息时间</span>
+          <input type="number" id="breakTime" min="1" max="60" value="5">
+          <button onclick="startTimer()" class="start">开始</button>
+          <button onclick="stopTimer()" class="end">停止</button>
+          <button onclick="restart()" class="restart">重置</button>
+          <div class="main-left-top">
+          <table border="1" class="task-left">
+            <tr>
+              <td id="task-target">目标</td>
+              <td id="task-times">次数</td>
+              <td id="time-summary">时间总结</td>
+            </tr>
+          </table>
+          </div>
+          <div class="circle">
+            <div class="inner-circle">
+              <p id="clock-title">未开始</p>
+              <div id="timer">00:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('./images/forest.jpg');
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 让容器充满视口高度 */
+}
+
+#heartImg {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 600px;
+    width: 90px; /* 调整爱心图片的宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 1; /* 设置 z-index 确保其位于较高层 */
+}
+
+#jieImg {
+    display: none;
+    position: absolute;
+    top: 180px;
+    right: 590px;
+    width: 200px; /* 调整蝴蝶结图片的宽度 */
+    height: auto; /* 根据宽度自动调整高度 */
+    z-index: 3; /* 设置更高的 z-index 以确保其置于顶层 */
+}
+
+.pet {
+    width: 300px; /* 调整宠物和背包的宽度 */
+    height: 300px; /* 调整宠物和背包的高度 */
+    z-index: 2; 
+}
+
+.progress-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background-color: #fff; /* 初始为白色 */
+}
+
+.bag {
+    width: 200px; /* 调整宠物和背包的宽度 */
+    height: 200px; /* 调整宠物和背包的高度 */
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px; /* 调整按钮顶部间距 */
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#exp {
+    color: white; /* 设置文本颜色为白色 */
+    margin-top: 10px; /* 调整经验值文本顶部间距 */
+}
+
+.wallet {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.money {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#myPetsList img {
+    width: 50px;
+    height: 50px;
+}
