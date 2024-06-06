@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #e9e8ed;
+}
+
+.container {
+    background-color: #4ad9ef;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width:420px;
+}
+
+.spongebob {
+    width: 100px; /* 设置海绵宝宝图像的宽度 */
+    height: auto; /* 设置海绵宝宝图像的高度自适应 */
+    margin-bottom: 10px; /* 调整海绵宝宝图像与其他内容之间的距离 */
+}
+.spongebob1 {
+    width: 100px; /* 设置海绵宝宝图像的宽度 */
+    height: auto; /* 设置海绵宝宝图像的高度自适应 */
+    margin-bottom: 10px; /* 调整海绵宝宝图像与其他内容之间的距离 */
+}
+.patrick {
+    width: 100px; /* 设置派大星图像的宽度 */
+    height: auto; /* 设置海绵宝宝图像的高度自适应 */
+    margin-bottom: 10px; /* 调整海绵宝宝图像与其他内容之间的距离 */
+}
+.patrick1 {
+    width: 100px; /* 设置派大星图像的宽度 */
+    height: auto; /* 设置海绵宝宝图像的高度自适应 */
+    margin-bottom:10px; /* 调整海绵宝宝图像与其他内容之间的距离 */
+}
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+button {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #f7fcfa;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #1cd887;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2a7f3e;
+}
+
+p {
+    margin-top: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-container,
+.register-container {
+    display: none;
+}
+
+.login-container {
+    display: block;
+}
