@@ -8,6 +8,51 @@ const expThresholds = [50, 100, 150]; // 每个等级的经验值阈值
 const progressLengths = ['50%', '75%', '100%']; // 不同阶段的进度条长度
 const progressIncrements = [20, 10, 5]; // 不同等级对应的进度条增量
 
+
+// 爱心动画效果
+document.addEventListener("DOMContentLoaded", function() {
+    const petImg = document.getElementById("petImg");
+    const heartImg = document.createElement("img"); // 创建爱心图片元素
+    heartImg.src = "./images/love_1.png"; // 初始爱心图片
+    heartImg.id = "heartImg"; // 给爱心图片设置 id
+    petImg.parentNode.appendChild(heartImg); // 将爱心图片添加到宠物图片的父元素中
+
+    let frameIndex = 1;
+    setInterval(() => {
+        frameIndex = (frameIndex % 4) + 1; // Assuming you have 4 frames of animation
+        petImg.src = `./images/pet_frame_${frameIndex}.png`;
+        if (petLevel >= 2) { // 只有在宠物等级达到第二级及以上时才显示爱心图片
+            heartImg.style.display = "inline"; // 显示爱心图片
+            heartImg.src = `./images/love_${frameIndex}.png`; // 更新爱心图片
+        } else {
+            heartImg.style.display = "none"; // 隐藏爱心图片
+        }
+    }, 200); // Change frame every 200 milliseconds
+});
+
+// 蝴蝶结动画效果
+document.addEventListener("DOMContentLoaded", function() {
+    const petImg = document.getElementById("petImg");
+    const jieImg = document.createElement("img"); // 创建蝴蝶结图片元素
+    jieImg.src = "./images/jie_1.png"; // 初始蝴蝶结图片
+    jieImg.id = "jieImg"; // 给蝴蝶结图片设置 id
+    petImg.parentNode.appendChild(jieImg); // 将蝴蝶结图片添加到宠物图片的父元素中
+
+    let frameIndex = 1;
+    setInterval(() => {
+        frameIndex = (frameIndex % 4) + 1; // Assuming you have 4 frames of animation
+        petImg.src = `./images/pet_frame_${frameIndex}.png`;
+        if (petLevel == 3) { // 只有在宠物等级达到第三级时才显示蝴蝶结图片
+            jieImg.style.display = "inline"; // 显示蝴蝶结图片
+            jieImg.src = `./images/jie_${frameIndex}.png`; // 更新蝴蝶结图片
+        } else {
+            jieImg.style.display = "none"; // 隐藏蝴蝶结图片
+        }
+    }, 200); // Change frame every 200 milliseconds
+});
+
+
+
 // Function to update UI
 function updateUI() {
     const progress = document.getElementById('progress');

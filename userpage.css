@@ -40,4 +40,25 @@ body {
   .stats h2 {
     margin-top: 0;
   }
+  .logout-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
   
+  .logout-button {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: rgb(166, 159, 159)dfd;
+    border: 2px solid #b2acac;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+     background-color: #2a2828; /* 悬停时背景色变为黑色 */
+  color: #fff; /* 悬停时文本颜色变为白色 */
+  border-color: #fff; /* 悬停时边框颜色变为白色 */
+}

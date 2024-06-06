@@ -68,6 +68,17 @@ function startTimer() {
     isTimerRunning = true;
     timerInterval = setInterval(updateTimer, 1000);
   }
+  function sendTimeContentToParent() {
+    var table_time = totalSeconds;  // 替换成实际的表格 id
+    var tableData = table_time;
+    alert('测试');
+    alert(tableData);
+    // 获取到任务总时间，将内容存储到 tableData 变量中
+    tableData = table_time;
+    // 将表格数据发送给父页面
+    window.parent.postMessage(tableData, '*');
+  }
+  sendTimeContentToParent();
 }
 
 
@@ -192,80 +203,7 @@ function restart() {
 
 
 
-//右下 任务列表 start
-let selectedRow = null;
-
-// 编辑任务
-function editTask(cell) {
-  cell.setAttribute('contenteditable', 'true'); // 设置任务单元格为可编辑
-  cell.focus(); // 让任务单元格获得焦点
-}
-
-// 保存任务
-function saveTasks() {
-  const tasks = document.querySelectorAll('.task-list td.editable');
-  tasks.forEach(task => {
-    if (task.parentElement.classList.contains('selected')) {
-      task.removeAttribute('contenteditable'); // 移除选中任务的编辑状态
-      task.addEventListener('click', function () {
-        editTask(this); // 保留点击事件监听器，以便用户可以继续编辑
-      });
-    }
-  });
-}
-
-// 新建任务
-function addNewTask() {
-  const taskList = document.querySelector('.task-list');
-  const rowCount = taskList.rows.length;
-  const newRow = taskList.insertRow(rowCount); // 插入新行
-  newRow.innerHTML = '<td>' + rowCount + '</td>' + // 编号列
-    '<td class="editable" contenteditable="true">新建任务</td>' + // 任务列
-    '<td><input type="checkbox" onclick="toggleCheckbox(this)"></td>' + // 新添加的勾选按钮列
-    '<td><button onclick="deleteRow(this)">删除</button></td>'; // 新添加的删除按钮列
-}
-
-// 选择任务
-function selectTask(row) {
-  if (selectedRow !== null) {
-    selectedRow.classList.remove('selected');
-  }
-  row.classList.add('selected');
-  selectedRow = row;
-}
-
-// 切换勾选按钮状态
-function toggleCheckbox(checkbox) {
-  const checkboxes = document.querySelectorAll('.task-list input[type="checkbox"]');
-  checkboxes.forEach(cb => {
-    if (cb !== checkbox) {
-      cb.checked = false; // 只允许一个勾选按钮被选中
-    }
-    if (cb === checkbox) {
-      let selectedRow = checkbox.parentElement.parentElement;
-      let secondCellContent = selectedRow.cells[1].textContent;
-      document.getElementById('task-target').textContent = secondCellContent;
-    }
-  });
-  tableUpdate();
-}
-
-// 删除行
-function deleteRow(button) {
-  const row = button.parentNode.parentNode;
-  row.parentNode.removeChild(row); // 删除所在行
-  updateTaskNumbers(); // 更新任务编号
-}
-
-// 更新任务编号
-function updateTaskNumbers() {
-  const rows = document.querySelectorAll('.task-list tr');
-  rows.forEach((row, index) => {
-    if (index > 0) { // 跳过表头
-      row.cells[0].textContent = index; // 更新任务编号
-    }
-  });
-}
+// 当前任务清单 start
 
 function tableUpdate() {
   let task_times = parseInt(document.getElementById('times').value);
@@ -276,71 +214,26 @@ function tableUpdate() {
   document.getElementById('time-summary').textContent = `${minute}分${second}秒`;
 }
 
-//右下 任务列表 end
+// 当前任务清单 end
 
 
-//主页面左下选择宠物 start
 
-function openPopup() {
-  const popup = document.getElementById('popup');
-  popup.style.display = 'block';
-}
 
-function optionSelected(option) {
-  switch (option) {
-    case 1:
-      alert('您选择了第一个宠物');
-      window.location.href = "pet1.html"; // 跳转到宠物 1 页面
-      break;
-    case 2:
-      alert('您选择了第二个宠物');
-      window.location.href = "pet2.html"; // 跳转到宠物 2 页面
-      break;
-    case 3:
-      alert('您选择了第三个宠物');
-      window.location.href = "pet3.html"; // 跳转到宠物 3 页面
-      break;
-    default:
-      alert('无效的选项');
+window.addEventListener("load", () => {
+  console.log('测试标记');
+  var clockload = {
+      flag: 'clockloadinformation'
+  };
+  window.parent.postMessage(clockload, '*');
+})
+
+window.addEventListener('message', function (event) {
+  // 确定消息来源是否可信
+  if (event.origin !== 'file://') {
+      return;
   }
-}
-
-function closePopup() {
-  const popup = document.getElementById('popup');
-  popup.style.display = 'none';
-}
-//主页面左下选择宠物 end
-
-//左侧导航栏页面定位函数 start
-function changeToClockpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './clockpage.html';
-}
-
-function changeToMainpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './mainpage.html';
-}
-
-function changeToPetpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './petpage.html';
-}
-
-function changeToCommunitypage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './communitypage.html';
-}
-
-function changeToUserpage(){
-  var iframe = document.querySelector('iframe');
-  // 设置 iframe 的 src 属性为百度网址
-  iframe.src = './userpage.html';
-}
-
-
-//左侧导航栏页面定位函数 end
+  if (event.data.flag === 'nowtasknameinformation') {
+      // 处理接收到的消息
+      document.getElementById('task-target').textContent = event.data.data;
+  }
+}, false);
