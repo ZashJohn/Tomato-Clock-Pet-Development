@@ -1,0 +1,68 @@
+.patato {
+  display: flex;
+  position: relative;
+}
+
+.nav {
+  flex: 1;
+  padding: 10px 0;
+  height: 100vh;
+  background-color:rgba(240, 246, 211, 0.5);
+  box-sizing: border-box;
+}
+
+.main {
+  flex: 9;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
+.main iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mainpage{
+  flex: 9;
+  height: 100vh;
+}
+.nav li {
+  padding: 8px 0;
+  list-style: none;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.nav li a {
+  display: block;
+  text-decoration: none;
+  color: #070707;
+}
+
+.nav li:hover {
+  background-color: rgba(247, 247, 134, 0.993)
+}
+
+.nav li a:hover {
+  color: rgb(84, 81, 81);
+}
+
+ul .self {
+  position: absolute;
+  bottom: 30px;
+  padding-left: 10px;
+}
+
+.self img {
+  width: 50px;
+  height: 50px;
+}
+
+li.self img {
+  width: 100px; /* 调整图片宽度 */
+  height: 100px; /* 调整图片高度 */
+  margin-left: -20px; /* 将图像向左移动10像素 */
+}

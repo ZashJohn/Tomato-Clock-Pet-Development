@@ -1,0 +1,4 @@
+@import url("//unpkg.com/element-ui@2.15.14/lib/theme-chalk/index.css");
+.el-date-editor.el-input {
+    font-size: 16px !important;
+  }

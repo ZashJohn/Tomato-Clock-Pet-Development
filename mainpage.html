@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link href="./mainpage.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pomotodo</title>
+  <script src="./script.js"></script>
+</head>
+
+<body>
+  <div class="main">
+    <div class="main-left">
+      <div class="main-left-bottom">
+
+        <div id="app">
+          <template>
+            <div class="block">
+              <span class="demonstration">历史</span>
+              <el-date-picker
+                v-model="value1"
+                type="date"
+                placeholder="选择日期"
+                size="large">
+              </el-date-picker>
+            </div>
+          </template>
+        </div>
+
+        <p class="task-title">任务列表</p>
+        <table border="1" class="task-list">
+          <tr>
+            <th class="task-number">任务数</th>
+            <th>任务</th>
+            <th>状态</th> <!-- 新添加的状态栏列 -->
+            <th>操作</th> <!-- 新添加的操作栏列 -->
+          </tr>
+          <tr onclick="selectTask(this)">
+            <td>1</td>
+            <td class="editable" contenteditable="true">任务 1</td>
+            <td><input type="checkbox" onclick="toggleCheckbox(this)"></td> <!-- 新添加的勾选按钮 -->
+            <td><button onclick="deleteRow(this)">删除</button></td> <!-- 新添加的删除按钮 -->
+          </tr>
+          <!-- 其他任务行 -->
+        </table>
+        <button onclick="saveTasks()" class="action-button">保存</button> <!-- 保存按钮 -->
+        <button onclick="addNewTask()" class="action-button">新建</button> <!-- 新建按钮 -->
+        <p class="partition"></p>
+    </div>
+    </div>
+</div>
+<div class="corner-image">
+  <img src="./images/Hello_4.gif" alt="Corner Image">
+</div>
+</body>
+
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui@2.15.14/lib/index.js"></script>
+  <script src="ca.js"></script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles.css">
+  <title>pomotodo</title>
+  <script src="./script.js"></script>
+</head>
+
+
+<body>
+  <div id="pomodoro" class="patato">
+    <!-- 左侧导航栏-->
+    <div class="nav">
+      <ul>
+        <li><a class="active" href="#clock" onclick="changeToClockpage()">时钟</a></li>
+        <li><a href="#home" onclick="changeToMainpage()">计划</a></li>
+        <li><a href="#pet" onclick="changeToPetpage()">宠物</a></li>
+        <li><a href="#community" onclick="changeToCommunitypage()">社区</a></li>
+        <li class="self"><a href="#person" onclick="changeToUserpage()"><img src="./images/geren.gif"></a></li>
+      </ul>
+    </div>
+    <!-- 右侧主页面 -->
+    <div class="main">
+      <iframe src="./mainpage.html" scrolling="no" frameborder="0"></iframe>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Cards</title>
+    <link rel="stylesheet" href="./petpage.css">
+    <script src="./petpage.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="wallet">
+            <span class="money" id="walletAmount">￥10000</span>
+        </div>
+        <br>
+        <img src="./images/Hello_1.gif" alt="Pet" class="pet" id="petImg">
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <br>
+        <img src="./images/bag_full.png" alt="Bag" class="bag" id="bagImage">
+        <br>
+        <button onclick="feedPet()">喂食</button>
+        <br>
+        <span id="exp">背包经验值: 10000</span>
+        <br>
+        <div id="myPetsList"></div>
+    </div>
+</body>
+</html>

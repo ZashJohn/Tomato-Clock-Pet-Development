@@ -1,0 +1,185 @@
+@import url("//unpkg.com/element-ui@2.15.14/lib/theme-chalk/index.css");
+.el-date-editor.el-input {
+    font-size: 16px !important;
+  }
+  .el-date-editor.el-date-picker__table {
+    width: 140px !important;
+  }
+
+  .el-date-editor.calendar-container {
+    width: 600px; /* 或任何您希望的宽度 */
+    height: auto;
+  }
+
+.main {
+  flex: 9;
+  height: 100vh;
+  background-image: url("./images/door.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+}
+
+.main iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.mainpage{
+  flex: 9;
+  height: 100vh;
+}
+
+.self img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 主页面左边 */
+.main-left {
+  flex: 2;
+}
+
+/* 左上 */
+.main-left .main-left-top {
+  height: 30%;
+  padding: 30px;
+  text-align: center;
+}
+
+.main-left .main-left-top table {
+  width: 60%;
+  height: 30%;
+  margin-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button {
+  border: none;
+  background-color: #59c6f9; /* 按钮背景色 */
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px; /* 按钮圆角 */
+  cursor: pointer;
+  font-size: 16px; /* 按钮字体大小 */
+}
+
+button:hover {
+  background-color: #f2bf49; /* 鼠标悬浮时的按钮背景色 */
+}
+
+input[type="number"],
+button {
+  margin: 10px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+}
+
+input {
+  width: 85px;
+}
+
+.main-left-bottom .clock .start {
+  position: relative;
+  left: -30px;
+}
+
+.main-left-bottom .clock .end {
+  position: relative;
+  right: -5px;
+}
+
+.main-left-bottom .clock .restart {
+  position: relative;
+  left: 30px;
+}
+
+/* 主页面右边 */
+.main-right {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+th,
+td {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  text-align: center;
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+td {
+  cursor: pointer;
+  font-size: 20px;
+  color: rgb(50, 37, 7);
+}
+
+.today{
+  background-color: rgba(255, 252, 252, 0.993);
+}
+
+/* styles.css */
+
+/*任务列表 */
+.task-list .task-number {
+  width: 5%; /* 设置任务数列的宽度 */
+}
+
+.task-list th:nth-child(2) {
+  width: 30%; /* 设置任务列的宽度 */
+}
+
+.task-list th:nth-child(3) {
+  width: 10%; /* 设置状态列的宽度 */
+}
+
+.task-list th:nth-child(4) {
+  width: 10%; /* 设置操作列的宽度 */
+}
+
+
+.main-right-bottom {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.task-title {
+  font-size: 40px;
+  color: rgb(23, 91, 123);
+  text-align: center;
+  margin-top: 50px;
+}
+
+.task-list {
+  background-color: rgba(214, 241, 255, 0.582);
+  margin-left: 10px; /* 移除默认的左侧边距 */
+  padding-left: 0; /* 移除默认的左侧填充 */
+}
+
+.task-list .task-number {
+  text-align: left;
+  width: 10%; /* 调整左侧元素宽度 */
+}
+
+.task-list tr td {
+  height: 50px;
+  margin: 0 auto;
+}
+
+.task-list {
+  margin-top: 40px; /* 设置顶部外边距 */
+}
+
