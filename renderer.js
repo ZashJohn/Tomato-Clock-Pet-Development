@@ -333,6 +333,7 @@ window.addEventListener('message', function (event) {
     if (event.data.flag === 'isloadedinformation') {
         console.log('-------开始修改登录用户的信息位-------');
         let loadeduseremail = event.data.data;
+        isLogin = true;
         // 查询数据库信息
         connection.query('SELECT * FROM users', (error, results, fields) => {
             if (error) {
@@ -422,6 +423,7 @@ window.addEventListener('message', function (event) {
                 return;
             }
             console.log('登录用户信息位已重置');
+            isLogin = false;
         });
 
         // 查询修改后的数据库

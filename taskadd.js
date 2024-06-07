@@ -128,7 +128,7 @@ function toggleCheckbox(checkbox) {
             var checkboxId = new Object();
             checkboxId.data = selectedId;
             checkboxId.flag = 'checkboxIdinformation';
-            alert('测试复选框id' + selectedId);
+            //alert('测试复选框id' + selectedId);
             window.parent.postMessage(checkboxId, '*');
         }
     });

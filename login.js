@@ -23,13 +23,13 @@ function register(event) {
     var fullname = document.getElementById('fullname').value;
     var email = document.getElementById('registerEmail').value;
     var password = document.getElementById('registerPassword').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    //var confirmPassword = document.getElementById('confirmPassword').value;
 
     // 简单的密码确认
-    if (password !== confirmPassword) {
-        alert("两次输入密码不一致");
-        return;
-    }
+    // if (password !== confirmPassword) {
+    //     alert("两次输入密码不一致");
+    //     return;
+    // }
 
     // 创建用户对象
     var newUser = {
@@ -52,7 +52,7 @@ function register(event) {
     document.getElementById('fullname').value = '';
     document.getElementById('registerEmail').value = '';
     document.getElementById('registerPassword').value = '';
-    document.getElementById('confirmPassword').value = '';
+    //document.getElementById('confirmPassword').value = '';
 
     // 提示注册成功
     alert("注册成功，请登录！");

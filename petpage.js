@@ -111,7 +111,7 @@ window.addEventListener('message', function (event) {
         return;
     }
     if (event.data.flag === 'expinformation') {
-        backpackExp = event.data.data;
+        backpackExp = (event.data.data * 100);
         console.log('backpackExp为:', backpackExp);
         updateUI();
     }
