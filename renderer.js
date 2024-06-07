@@ -141,7 +141,7 @@ window.addEventListener('message', function (event) {
                 console.error('插入数据失败: ' + error.stack);
                 return;
             }
-            console.log('当前任务时间已修改');
+            console.log('当前任务时间已修改taskId为',taskId);
         });
 
         //查询添加过数据的数据库
@@ -181,10 +181,21 @@ window.addEventListener('message', function (event) {
 
 let iframe = document.getElementById('iframeId');
 let childWindow = iframe.contentWindow;
-childWindow.addEventListener('firstMessageType', function (event) {
-    console.log('获取到复选框id为:', event.detail.data);
-    taskId = event.detail.data;
-});
+
+// 获取当前任务的id
+window.addEventListener('message', function (event) {
+    if (event.origin !== 'file://') {
+        // 确保消息来自期望的子页面域
+        return;
+    }
+    if (event.data.flag === 'checkboxIdinformation') {
+        taskId = event.data.data;
+        console.log('taskId为:', taskId);
+    }
+})
+
+
+
 
 // 把注册用户数据保存在本地数据库
 window.addEventListener('message', function (event) {
@@ -443,6 +454,7 @@ window.addEventListener('message', function (event) {
         return;
     }
     if (event.data.flag === 'loadtimeinformation') {
+        var nowtimeCopy;
         connection.query('SELECT time FROM task_name WHERE isclick = 1', (error, results, fields) => {
             if (error) {
                 console.error('查询失败: ' + error.stack);
@@ -451,13 +463,24 @@ window.addEventListener('message', function (event) {
             for (let i = 0; i < results.length; i++) {
                 todaytime += results[i].time;
             }
-            // console.log(todaytime);
         });
-        console.log(todaytime);
-        timeObject.total_time = nowtime;
-        timeObject.today_time = todaytime;
-        timeObject.flag = 'timeinformation';
-        iframe.contentWindow.postMessage(timeObject, '*');
+
+        connection.query('SELECT total_time FROM users WHERE isload = 1', (error, results, fields) => {
+            if (error) {
+                console.error('查询失败: ' + error.stack);
+                return;
+            }
+            totaltime = results[0].total_time;
+            console.log('测试-----------results',results);
+            nowtimeCopy = totaltime;
+            //console.log('测试-----------nowtime',nowtime);
+            console.log('测试-----------nowtime',nowtimeCopy);
+            console.log(todaytime);
+            timeObject.total_time = nowtimeCopy;
+            timeObject.today_time = todaytime;
+            timeObject.flag = 'timeinformation';
+            iframe.contentWindow.postMessage(timeObject, '*');
+        });   
     }
 })
 
@@ -507,6 +530,27 @@ window.addEventListener('message', function (event) {
             console.log('初次查询结果成功');
             console.log('查询结果为: ', results);
             console.log('-------同步任务列表结束-------');
+        });
+    }
+})
+
+
+// 设置宠物经验
+var exp = new Object();
+window.addEventListener('message', function (event) {
+    if (event.origin !== 'file://') {
+        // 确保消息来自期望的子页面域
+        return;
+    }
+    if (event.data.flag === 'totalexpinformation') {     
+        connection.query('SELECT total_time FROM users WHERE isload = 1', (error, results, fields) => {
+            if (error) {
+                console.error('查询失败: ' + error.stack);
+                return;
+            }
+            exp.data = results[0].total_time;
+            exp.flag = 'expinformation';
+            iframe.contentWindow.postMessage(exp, '*');
         });
     }
 })

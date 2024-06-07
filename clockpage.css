@@ -14,7 +14,7 @@
   .main {
     flex: 9;
     height: 100vh;
-    background-image: url("./images/BG.png");
+    background-image: url("./images/clock.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -111,7 +111,7 @@
     background-color: #cae6e0;
   }
   button {
-    background-color: rgb(121, 145, 122);
+    background-color: rgb(64, 66, 64);
     color: white;
     width: 57px;
     height: 32px;
@@ -123,7 +123,7 @@
   }
   
   button:hover {
-    background-color: rgb(24, 86, 27);
+    background-color: rgb(29, 30, 29);
   }
 
 
@@ -168,7 +168,7 @@ button:hover::before {
     width: 480px;
     height: 480px;
     border-radius: 50%;
-    background-color: rgba(160, 212, 200, 0.1);
+    background-color: rgba(68, 71, 70, 0.1);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -210,22 +210,22 @@ button:hover::before {
   }
   
   .clock input[type="number"] {
-    background-color: #689168; /* 设置输入框的背景颜色为浅灰色 */
+    background-color: #5c5d5c; /* 设置输入框的背景颜色为浅灰色 */
     border: 1px solid #ccc; /* 设置输入框的边框为浅灰色 */
-    color: #ffffff; /* 设置输入框的字体颜色为白色 */
+    color: #f8f8f8; /* 设置输入框的字体颜色为白色 */
     padding: 5px; /* 设置输入框的内边距 */
     border-radius: 5px; /* 设置输入框的边框圆角 */
     margin-right: 10px; /* 设置输入框之间的右边距 */
 }
 
 ::placeholder {
-  color: #000000; /* 设置占位符的字体颜色为灰色 */
+  color: #fefefe; /* 设置占位符的字体颜色为灰色 */
 }
 
 
 .clock label, /* 选择 label 元素 */
 .clock span { /* 选择 span 元素 */
-    color: #ffffff; /* 设置文本颜色为白色 */
+    color: #080808; /* 设置文本颜色为白色 */
 }
 
 /* 左上 */
@@ -236,7 +236,7 @@ button:hover::before {
   height: 30%;
   padding: 10px;
   text-align: center;
-  color: #ffffff;
+  color: #080808;
 }
 
 .clock  .main-left-top table {

@@ -125,9 +125,11 @@ function toggleCheckbox(checkbox) {
             window.parent.postMessage(isclick_name, '*');
 
             // 同步勾选框任务的时间
-            var checkboxId = new CustomEvent('firstMessageType', { detail: { data: selectedId } });
-            //alert('测试复选框id' + selectedId);
-            window.dispatchEvent(checkboxId);
+            var checkboxId = new Object();
+            checkboxId.data = selectedId;
+            checkboxId.flag = 'checkboxIdinformation';
+            alert('测试复选框id' + selectedId);
+            window.parent.postMessage(checkboxId, '*');
         }
     });
 }
@@ -148,6 +150,7 @@ function updateTaskNumbers() {
         }
     });
 }
-
-
 //右下 任务列表 end
+
+
+

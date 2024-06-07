@@ -1,95 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
   <link href="./communitypage.css" rel="stylesheet">
   <title>pomotodo</title>
-  <script src="./communitypage.js"></script>
+  <script defer src="./communitypage.js"></script>
 </head>
-
 
 <body>
   <div class="main">
 
     <!-- 分享内容区域 start-->
-    <div class="main-content-area">
-      <!-- 分享卡片 start-->
-      <!-- 头像在左边的分享卡片 -->
-      <div class="content-left">
-        <div class="left-left">
-          <img src="./images/profilephoto.jpg" alt="个人头像">
-        </div>
-        <div class="left-right">
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <button class="like-btn" onclick="likePost(this)">
-            <img class="like-img" src="./images/like.png" alt="点赞">
-          </button>
-          <span class="like-count">0</span> <!-- 显示点赞数的元素 -->
-        </div>
-      </div>
-      <!-- 头像在右边的分享卡片 -->
-      <!-- 头像在左边的分享卡片 -->
-      <div class="content-left">
-        <div class="left-left">
-          <img src="./images/profilephoto.jpg" alt="个人头像">
-        </div>
-        <div class="left-right">
-          
-          </div>
-          <div class="left-right">
-            <p>卡片测试</p>
-            <p>卡片测试</p>
-            <p>卡片测试</p>
-      
-          <button class="like-btn" onclick="likePost(this)">
-            <img class="like-img" src="./images/like.png" alt="点赞">
-          </button>
-          <span class="like-count">0</span> <!-- 显示点赞数的元素 -->
-        </div>
-      </div>
-      <!-- 头像在左边的分享卡片 -->
-      <div class="content-left">
-        <div class="left-left">
-          <img src="./images/profilephoto.jpg" alt="个人头像">
-        </div>
-        <div class="left-right">
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <button class="like-btn" onclick="likePost(this)">
-            <img class="like-img" src="./images/like.png" alt="点赞">
-          </button>
-          <span class="like-count">0</span> <!-- 显示点赞数的元素 -->
-        </div>
-      </div>
-      <!-- 头像在右边的分享卡片 -->
-      <!-- 头像在左边的分享卡片 -->
-      <div class="content-left">
-        <div class="left-left">
-          <img src="./images/profilephoto.jpg" alt="个人头像">
-        </div>
-        <div class="left-right">
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <p>卡片测试</p>
-          <button class="like-btn" onclick="likePost(this)">
-            <img class="like-img" src="./images/like.png" alt="点赞">
-          </button>
-          <span class="like-count">0</span> <!-- 显示点赞数的元素 -->
-        </div>
-      </div>
-      <!-- 分享卡片 end-->
+    <div class="main-content-area" id="main-content-area">
+      <!-- 动态生成分享卡片 -->
     </div>
     <!-- 分享内容区域 end-->
 
     <!-- 发送分享区域 start-->
     <div class="send">
-      <button>分享</button>
+      <textarea id="comment-input" placeholder="请输入您的评论..."></textarea>
+      <button onclick="sendComment()">发送</button>
     </div>
     <!-- 发送分享区域 end-->
+
+  </div>
+  <div class="corner-image">
+    <img src="./images/Hello_5.gif" alt="Corner Image">
+  </div>
+  <div class="left-corner-image">
+    <img src="./images/Hello_7.gif" alt="Left Corner Image">
   </div>
 </body>
 

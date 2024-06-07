@@ -26,14 +26,15 @@ window.addEventListener('message', function (event) {
     }
     if (event.data.flag === 'timeinformation') {
         // 处理接收到的消息
+        console.log(event.data.total_time);
         let total_mins = Math.floor(event.data.total_time / 60);
         let hour = Math.floor(total_mins / 60);
         let mins = total_mins % 60;
         let secs = event.data.total_time % 60;
         if (total_mins >= 60) {
-            totaltime.innerHTML = `总时长: ${hour} 小时 ${mins} 分 ${secs} 秒`;
+            totaltime.innerHTML = `已经专注时长: ${hour} 小时 ${mins} 分 ${secs} 秒`;
         } else {
-            totaltime.innerHTML = `总时长: ${mins} 分 ${secs} 秒`;
+            totaltime.innerHTML = `已经专注时长: ${mins} 分 ${secs} 秒`;
         }
 
         let today_total_mins = Math.floor(event.data.today_time / 60);
@@ -42,9 +43,9 @@ window.addEventListener('message', function (event) {
         let today_secs = event.data.today_time % 60;
 
         if (today_total_mins >= 60) {
-            todaytime.innerHTML = `今日时长: ${today_hour} 小时 ${today_mins} 分 ${today_secs} 秒`;
+            todaytime.innerHTML = ``;
         } else {
-            todaytime.innerHTML = `今日时长: ${today_mins} 分 ${today_secs} 秒`;
+            todaytime.innerHTML = ``;
         }
     }
 }, false);

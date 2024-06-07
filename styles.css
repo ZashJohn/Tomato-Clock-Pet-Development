@@ -7,7 +7,7 @@
   flex: 1;
   padding: 10px 0;
   height: 100vh;
-  background-color:rgba(125, 162, 125, 0.5);
+  background-color:rgba(240, 246, 211, 0.5);
   box-sizing: border-box;
 }
 
@@ -43,11 +43,11 @@
 }
 
 .nav li:hover {
-  background-color: rgba(0, 128, 0, 0.5);
+  background-color: rgba(247, 247, 134, 0.993)
 }
 
 .nav li a:hover {
-  color: #5e5c5a;
+  color: rgb(84, 81, 81);
 }
 
 ul .self {
@@ -61,3 +61,8 @@ ul .self {
   height: 50px;
 }
 
+li.self img {
+  width: 100px; /* 调整图片宽度 */
+  height: 100px; /* 调整图片高度 */
+  margin-left: -20px; /* 将图像向左移动10像素 */
+}
